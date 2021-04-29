@@ -2,6 +2,7 @@
 ##############################################
 #### Example code to analyze temp.RData ######
 ##############################################
+library('MASS')
 load('temp.RData')
 
 ###### observed treatment means
@@ -103,4 +104,4 @@ Sigma = Sigma*IF
 C = matrix(c(rep(1,7), rep(c(-1, rep(0,7)), 6), -1), nrow=7)
 
 # Wald-type test statistic in Equation (8)
-Chi_square = t(C%*%mu)%*%ginv(C%*%Sigma%*%t(C))%*%C%*%mu
+t(C%*%mu)%*%ginv(C%*%Sigma%*%t(C))%*%C%*%mu
